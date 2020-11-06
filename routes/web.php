@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/students', 'StudentController@index');
+Route::post('/students/create', 'StudentController@create');

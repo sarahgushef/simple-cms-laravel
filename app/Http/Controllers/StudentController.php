@@ -18,4 +18,11 @@ class StudentController extends Controller
             'students' => $students
         ]);
     }
+
+    public function create(Request $request)
+    {
+        Student::create($request->all());
+
+        return redirect('/students')->with('success', 'Data berhasil ditambah');
+    }
 }
