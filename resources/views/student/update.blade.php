@@ -18,46 +18,46 @@
         @endif
         <div class="row mt-3 mb-3">
             <div class="col">
-                <h1>Daftar Siswa</h1>
-            </div>
-            <div class="col">
-                <button class="btn btn-primary btn-sm float-right mt-3" data-toggle="modal" data-target="#addStudentModal">+ Tambah Siswa</button>
+                <h1>Edit Data Siswa</h1>
             </div>
         </div>
         <div class="row">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>NAMA DEPAN</th>
-                        <th>NAMA BELAKANG</th>
-                        <th>JENIS KELAMIN</th>
-                        <th>AGAMA</th>
-                        <th>ALAMAT</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach ($students as $student)
-
-                    <tr>
-                        <td>{{ $student->first_name }}</td>
-                        <td>{{ $student->last_name }}</td>
-                        <td>{{ $student->sex }}</td>
-                        <td>{{ $student->religion }}</td>
-                        <td>{{ $student->address }}</td>
-                        <td>
-                        <a href="/students/{{$student->id}}/update-page" class="btn btn-warning">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="/students/delete" class="btn btn-danger">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="col">
+            <form action="/students/{{$student->id}}/update" method="POST">
+                {{-- crsf_field() berguna untuk menambah token, karena di laravel, setiap ada submit harus ada token. Nanti akan muncul <input type="hidden" name="_token" value="random token">. Cek di inspect > elements--}}
+                {{csrf_field()}}
+                <div class="form-group">
+                <label for="firstName">Nama Depan</label>
+                <input type="text" class="form-control" id="firstName" name="first_name" value="{{$student->first_name}}"/>
+                </div>
+                <div class="form-group">
+                <label for="lastName">Nama Belakang</label>
+                <input type="text" class="form-control" id="lastName" name="last_name" value="{{$student->last_name}}"/>
+                </div>
+                <div class="form-group">
+                <label for="sex">Jenis Kelamin</label>
+                <select class="form-control" id="sex" name="sex">
+                <option value="pria" @if($student->sex === "pria") selected @endif>Pria</option>
+                <option value="wanita" @if($student->sex === "wanita") selected @endif>Wanita</option>
+                </select>
+                </div>
+                <div class="form-group">
+                <label for="religion">Agama</label>
+                <select class="form-control" id="religion" name="religion">
+                <option value="islam" @if($student->religion === "islam") selected @endif>Islam</option>
+                <option value="kristen" @if($student->religion === "kristen") selected @endif>Kristen</option>
+                <option value="khatolik" @if($student->religion === "khatolik") selected @endif>Khatolik</option>
+                <option value="hindu" @if($student->religion === "hindu") selected @endif>Hindu</option>
+                <option value="buddha" @if($student->religion === "buddha") selected @endif>Buddha</option>
+                </select>
+                </div>
+                <div class="form-group">
+                <label for="address">Alamat</label>
+                <textarea class="form-control" id="address" name="address" rows="3">{{$student->address}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Ubah data</button>
+                </form>
+            </div>
         </div>
 
         <!-- Vertically centered scrollable modal -->
@@ -121,3 +121,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 </html>
+

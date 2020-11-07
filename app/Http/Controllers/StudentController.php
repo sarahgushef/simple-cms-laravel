@@ -25,4 +25,24 @@ class StudentController extends Controller
 
         return redirect('/students')->with('success', 'Data berhasil ditambah');
     }
+
+    public function updatePage($id)
+    {
+        $student = Student::find($id);
+
+        // dd($student); // Lihat di browser, bagian original, nanti akan terlihat nama siswanya.
+
+        return view('student/update', [
+            'student' => $student
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::find($id);
+
+        $student->update($request->all());
+
+        return redirect('students')->with('success', 'Data berhasil diubah');
+    }
 }
