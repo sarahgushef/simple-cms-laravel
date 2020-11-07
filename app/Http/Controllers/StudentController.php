@@ -45,4 +45,12 @@ class StudentController extends Controller
 
         return redirect('students')->with('success', 'Data berhasil diubah');
     }
+
+    public function delete($id)
+    {
+        $student = Student::find($id);
+        $student->delete();
+
+        return redirect('/students')->with('success', 'Siswa berhasil dihapus');
+    }
 }

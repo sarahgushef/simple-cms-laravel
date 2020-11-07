@@ -19,4 +19,5 @@ Route::get('/students', 'StudentController@index');
 Route::post('/students/create', 'StudentController@create');
 Route::get('/students/{id}/update-page', 'StudentController@updatePage');
 Route::put('/students/{id}/update', 'StudentController@update');
+Route::get('/students/{id}/delete', 'StudentController@delete');
 

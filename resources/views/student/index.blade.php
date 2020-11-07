@@ -43,7 +43,8 @@
                     <a href="/students/{{$student->id}}/update-page" class="btn btn-warning">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="/students/delete" class="btn btn-danger">
+                    <a href="/students/{{$student->id}}/delete" class="btn btn-danger"
+                        onclick="return confirm('Yakin mau dihapus')">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
