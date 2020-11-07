@@ -18,5 +18,5 @@ Route::get('/', function () {
 Route::get('/students', 'StudentController@index');
 Route::post('/students/create', 'StudentController@create');
 Route::get('/students/{id}/update-page', 'StudentController@updatePage');
-Route::post('/students/{id}/update', 'StudentController@update');
+Route::put('/students/{id}/update', 'StudentController@update');
 

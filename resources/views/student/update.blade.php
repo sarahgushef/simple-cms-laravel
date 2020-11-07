@@ -17,6 +17,7 @@
         <form action="/students/{{$student->id}}/update" method="POST">
             {{-- crsf_field() berguna untuk menambah token, karena di laravel, setiap ada submit harus ada token. Nanti akan muncul <input type="hidden" name="_token" value="random token">. Cek di inspect > elements--}}
             {{csrf_field()}}
+            <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
                 <label for="firstName">Nama Depan</label>
                 <input type="text" class="form-control" id="firstName" name="first_name"
