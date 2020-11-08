@@ -14,25 +14,20 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="container">
-            <div class="row">
-                <a class="navbar-brand" href="/">SMA 2 Tangerang Selatan</a>
-            </div>
-            <div class="row">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{Request::is("/") ? "active": ""}}">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item {{Request::is("students*") ? "active": ""}}">
-                            <a class="nav-link" href="/students">Siswa</a>
-                        </li>
-                    </ul>
-                </div>
+            <a class="navbar-brand" href="/">SMAN 2 Tangerang Selatan</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {{Request::is("/") ? "active": ""}}">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item {{Request::is("students*") ? "active": ""}}">
+                        <a class="nav-link" href="/students">Siswa</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
