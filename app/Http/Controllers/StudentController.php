@@ -14,7 +14,9 @@ class StudentController extends Controller
         // dd($request->all()); // untuk melihat seluruh query string
 
         if($request->has('search')){
-            $students = Student::where('first_name', 'LIKE', '%'.$request->search.'%')->get();
+            // $students = Student::where('first_name', 'LIKE', '%'.$request->search.'%')->get(); // Kalau nyari hanya dari satu kolom saja
+
+            $students = Student::query()->where('first_name', 'LIKE', '%'.$request->search.'%')->orWhere('last_name','LIKE', '%'.$request->search.'%' )->get();
         }else {
             $students = Student::all();
         }
