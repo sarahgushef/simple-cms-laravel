@@ -28,6 +28,11 @@
                         <a class="nav-link" href="/students">Siswa</a>
                     </li>
                 </ul>
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/students">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Cari siswa"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
+                </form>
             </div>
         </div>
     </nav>

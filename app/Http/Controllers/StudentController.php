@@ -9,10 +9,15 @@ use App\Student;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::all();
+        // dd($request->all()); // untuk melihat seluruh query string
 
+        if($request->has('search')){
+            $students = Student::where('first_name', 'LIKE', '%'.$request->search.'%')->get();
+        }else {
+            $students = Student::all();
+        }
 
         return view('student.index', [
             'students' => $students
