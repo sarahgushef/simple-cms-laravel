@@ -15,11 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', 'AuthController@login');
+Route::get('/login', 'AuthController@loginPage')->name('login'); // name itu ngasih nama route. Di sini namanya login karena di App\Http\Middlewar\Authenticate mereturn route yang namanya login (bukan path /login)
+Route::post('/login', 'AuthController@login');
 
-Route::get('/students', 'StudentController@index');
-Route::post('/students/create', 'StudentController@create');
-Route::get('/students/{id}/update-page', 'StudentController@updatePage');
-Route::put('/students/{id}/update', 'StudentController@update');
-Route::get('/students/{id}/delete', 'StudentController@delete');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/logout', 'AuthController@logout');
+
+    Route::get('/dashboard', 'DashboardController@index');
+
+    Route::get('/students', 'StudentController@index');
+    Route::post('/students/create', 'StudentController@create');
+    Route::get('/students/{id}/update-page', 'StudentController@updatePage');
+    Route::put('/students/{id}/update', 'StudentController@update');
+    Route::get('/students/{id}/delete', 'StudentController@delete');
+});
+
 

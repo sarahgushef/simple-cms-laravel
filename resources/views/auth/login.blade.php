@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
-    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
     <!-- ICONS -->
@@ -36,15 +34,17 @@
                                 </div>
                                 <p class="lead">Login to your account</p>
                             </div>
-                            <form class="form-auth-small" action="index.php">
+                            <form class="form-auth-small" action="/login" method="POST">
+                                {{csrf_field()}}
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
-                                    <input type="email" class="form-control" id="signin-email" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" id="signin-email"
+                                        placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="signin-password" class="control-label sr-only">Password</label>
-                                    <input type="password" class="form-control" id="signin-password"
-                                        value="thisisthepassword" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" id="signin-password"
+                                        placeholder="Password">
                                 </div>
                                 <div class="form-group clearfix">
                                     <label class="fancy-checkbox element-left">

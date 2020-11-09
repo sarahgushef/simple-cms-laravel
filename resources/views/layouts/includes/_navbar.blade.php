@@ -24,10 +24,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img
                             src="{{asset("admin/assets/img/user.png")}}" class="img-circle" alt="Avatar">
-                        <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i>
+                        {{-- user()->name, name adalah nama kolom di table user --}}
+                        <span>{{auth()->user()->name}}</span><i class="icon-submenu lnr lnr-chevron-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                        <li>
+                            <a href="/logout">
+                                <i class="lnr lnr-exit"></i> <span>Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
