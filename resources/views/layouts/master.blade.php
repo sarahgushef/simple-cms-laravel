@@ -1,54 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>SMAN 2 Tangerang Selatan</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="{{asset("admin/assets/vendor/bootstrap/css/bootstrap.min.css")}}">
+    <link rel=" stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist-custom.css')}}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
+    {{-- FONT AWESOME --}}
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>SMA 2 Tangerang Selatan</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <div class="container">
-            <a class="navbar-brand" href="/">SMAN 2 Tangerang Selatan</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{Request::is("/") ? "active": ""}}">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item {{Request::is("students*") ? "active": ""}}">
-                        <a class="nav-link" href="/students">Siswa</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0" method="GET" action="/students">
-                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Cari siswa"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
-                </form>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        @include('layouts.includes._navbar')
+        @include('layouts.includes._sidebar')
+        <!-- MAIN -->
+        <div class="main">
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            @include('layouts.includes._panel')
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container">
-        @yield("content")
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
-    </script>
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer>
+            <div class="container-fluid">
+                <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>.
+                    All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script src="{{asset("admin/assets/vendor/jquery/jquery.min.js")}}"></script>
+    <script src="{{asset("admin/assets/vendor/bootstrap/js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js")}}"></script>
+    <script src="{{asset("admin/assets/scripts/klorofil-common.js")}}"></script>
 </body>
 
 </html>

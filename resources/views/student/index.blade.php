@@ -1,24 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
-{{-- Kalau ada variabel "success", maka tampilan alert di bawah --}}
-@if(session('success'))
-<div class="alert alert-success" role="alert">
-    {{session('success')}}
-</div>
-@endif
 
-<div class="row mt-3 mb-3">
-    <div class="col">
-        <h1>Daftar Siswa</h1>
+
+<div class="panel-heading">
+    {{-- Kalau ada variabel "success", maka tampilan alert di bawah --}}
+    @if(session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
     </div>
-    <div class="col">
-        <button class="btn btn-primary btn-sm float-right mt-3" data-toggle="modal" data-target="#addStudentModal">+
-            Tambah Siswa</button>
+    @endif
+
+    <div style="display: flex; justify-content: space-between">
+        <h3>Daftar Siswa</h3>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudentModal"
+            style="color: white; padding: 10px; margin: 10px 0; background-color:#01A0F0;">
+            Tambah murid
+        </button>
     </div>
 </div>
-<div class="row">
-    <table class="table table-hover">
+<div class="panel-body">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>NAMA DEPAN</th>
@@ -30,7 +32,6 @@
             </tr>
         </thead>
         <tbody>
-
             @foreach ($students as $student)
 
             <tr>
@@ -53,8 +54,6 @@
         </tbody>
     </table>
 </div>
-
-<!-- Vertically centered scrollable modal -->
 <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -62,10 +61,7 @@
                 {{-- crsf_field() berguna untuk menambah token, karena di laravel, setiap ada submit harus ada token. Nanti akan muncul <input type="hidden" name="_token" value="random token">. Cek di inspect > elements--}}
                 {{csrf_field()}}
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Murid</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h3 class="modal-title" id="exampleModalLabel">Tambah Murid</h3>
                 </div>
                 <div class="modal-body">
 
