@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', 'AuthController@login');
+
 Route::get('/students', 'StudentController@index');
 Route::post('/students/create', 'StudentController@create');
 Route::get('/students/{id}/update-page', 'StudentController@updatePage');
