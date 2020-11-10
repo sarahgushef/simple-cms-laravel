@@ -25,6 +25,10 @@
             <input type="text" class="form-control" id="lastName" name="last_name" value="{{$student->last_name}}" />
         </div>
         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{$student->email}}" />
+        </div>
+        <div class="form-group">
             <label for="sex">Jenis Kelamin</label>
             <select class="form-control" id="sex" name="sex">
                 <option value="pria" @if($student->sex === "pria") selected @endif>Pria</option>
