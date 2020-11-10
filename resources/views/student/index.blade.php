@@ -25,6 +25,7 @@
             <tr>
                 <th>NAMA DEPAN</th>
                 <th>NAMA BELAKANG</th>
+                <th>EMAIL</th>
                 <th>JENIS KELAMIN</th>
                 <th>AGAMA</th>
                 <th>ALAMAT</th>
@@ -37,6 +38,7 @@
             <tr>
                 <td>{{ $student->first_name }}</td>
                 <td>{{ $student->last_name }}</td>
+                <td>{{ $student->email }}</td>
                 <td>{{ $student->sex }}</td>
                 <td>{{ $student->religion }}</td>
                 <td>{{ $student->address }}</td>
@@ -72,6 +74,10 @@
                     <div class="form-group">
                         <label for="lastName">Nama Belakang</label>
                         <input type="text" class="form-control" id="lastName" name="last_name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" />
                     </div>
                     <div class="form-group">
                         <label for="sex">Jenis Kelamin</label>
