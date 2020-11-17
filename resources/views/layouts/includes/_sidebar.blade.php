@@ -3,7 +3,7 @@
         <nav>
             <ul class="nav">
                 <li>
-                    <a href="/" class="{{Request::is("/") ? "active": ""}}">
+                    <a href="/dashboard" class="{{Request::is("/") ? "active": ""}}">
                         <i class="lnr lnr-home"></i><span>Dashboard</span>
                     </a>
                 </li>
