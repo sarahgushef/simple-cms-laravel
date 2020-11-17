@@ -1,5 +1,16 @@
-@extends('layouts.master')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<h1>Halaman Welcome</h1>
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SMA 2 Tangerang Selatan</title>
+</head>
+
+<body>
+    <h1>Selamat Datang</h1>
+    <p>silahkan ke /login untuk masuk ke dashboard</p>
+</body>
+
+</html>
